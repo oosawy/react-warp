@@ -43,6 +43,9 @@ const WarpHost = (props: { portals: Portals }) => {
   )
 }
 
+const isServer = typeof window === 'undefined'
+const useClientOnlyLayoutEffect = isServer ? () => {} : useLayoutEffect
+
 export const Warp = (props: { children: React.ReactElement }) => {
   const manager = useContext(WarpContext)
 
@@ -58,7 +61,7 @@ export const Warp = (props: { children: React.ReactElement }) => {
     throw new Error('<Warp /> child must have key prop')
   }
 
-  useLayoutEffect(() => {
+  useClientOnlyLayoutEffect(() => {
     const node = manager.set(key.toString(), props.children)
     ref.current?.replaceChildren(node)
   }, [props.children, key])
