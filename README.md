@@ -7,7 +7,7 @@ Construct Warp Tunnels to warp elements between renders in React🪐
 
 ## Motivation
 
-An article is work in progress.
+[RFC: Keeping real dom elements across renders in React](https://dev.to/oosawy/rfc-keeping-real-dom-elements-across-renders-in-react-401l)
 
 ## Install
 
